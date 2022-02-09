@@ -4,13 +4,21 @@ import './AddFood.css'
 
 const AddFood = () => {
     const [foods, setFoods] = useState([]);
+    const [page, setPage] = useState(0)
+    const [pageCount, setPageCount] = useState(0);
     const [update, setUpdate] = useState(0);
-
+    const size = 3;
     useEffect(() => [
-        fetch('http://localhost:5000/foodItems')
+        fetch(`http://localhost:5000/foodItems?page=${page}&&size=${size}`)
             .then(res => res.json())
-            .then(data => setFoods(data))
-    ], [update])
+            .then(data => {
+                setFoods(data.foods);
+                const count = data.count;
+                const pageNumber = Math.ceil(count / size);
+                setPageCount(pageNumber);
+
+            })
+    ], [update, page])
 
     console.log(foods);
 
@@ -144,6 +152,16 @@ const AddFood = () => {
                                                 )}
                                             </table>
                                         </div >
+                                    </div>
+                                    <div className="pagination mt-8">
+                                        {
+                                            [...Array(pageCount).keys()].map(number =>
+                                                <button className={number === page ? "px-2 mx-2 border-2 rounded text-white bg-indigo-900 border-indigo-900" : " px-2 mx-2 border-2 rounded bg-gray-100 border-indigo-900"}
+                                                    key={number}
+                                                    onClick={() => setPage(number)}
+                                                >{number + 1} </button>)
+                                        }
+
                                     </div>
                                 </div>
                             </div>
