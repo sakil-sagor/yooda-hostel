@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import AuthProvider from './Context/AuthProvider';
+import AddFood from "./Pages/Dashboard/AddProduct/AddFood";
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
 import AfterResetPass from "./Pages/Login/ForgatePass/AfterResetPass";
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/dashboard">
               <Dashboard></Dashboard>
+            </Route>
+            <Route exact path="/addFood">
+              <AddFood></AddFood>
             </Route>
             <Route exact path="/login">
               <Login></Login>
