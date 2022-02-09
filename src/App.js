@@ -1,13 +1,22 @@
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
+import AuthProvider from './Context/AuthProvider';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Home from './Pages/Home/Home';
+import AfterResetPass from "./Pages/Login/ForgatePass/AfterResetPass";
+import ForgatePass from "./Pages/Login/ForgatePass/ForgatePass";
+import Login from "./Pages/Login/Login";
+import Navbar from "./Pages/Navbar/Navbar";
+import Register from "./Pages/Register/Register";
 
 function App() {
   return (
     <div className="App">
 
-      {/* <AuthProvider>
+      <AuthProvider>
         <Router>
           <Navbar></Navbar>
-          <ScrollToTop />
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -15,29 +24,8 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route exact path="/shop">
-              <Shop></Shop>
-            </Route>
-            <PrivateRoute exact path="/addToCart">
-              <AddToCart></AddToCart>
-            </PrivateRoute>
-            <Route exact path="/shop/:productId">
-              <ProductDetails></ProductDetails>
-            </Route>
-            <PrivateRoute exact path="/directOrder/:productId">
-              <DirectOrder></DirectOrder>
-            </PrivateRoute>
-            <PrivateRoute exact path="/addToCartOrder/:addToCartId">
-              <AddToCartOrder></AddToCartOrder>
-            </PrivateRoute>
-            <PrivateRoute exact path="/orderNow">
-              <OrderNow></OrderNow>
-            </PrivateRoute>
-            <Route exact path="/aboutUs">
-              <AboutUs></AboutUs>
-            </Route>
-            <Route exact path="/contactUs">
-              <ContactUs></ContactUs>
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
             </Route>
             <Route exact path="/login">
               <Login></Login>
@@ -51,40 +39,10 @@ function App() {
             <Route exact path="/afterResetPass">
               <AfterResetPass></AfterResetPass>
             </Route>
-            <PrivateRoute path="/dashboard">
-              <Dashboard></Dashboard>
-            </PrivateRoute>
-            <PrivateRoute exact path="/addProducts">
-              <AddProduct></AddProduct>
-            </PrivateRoute>
-            <PrivateRoute exact path="/myOrders">
-              <MyOrders></MyOrders>
-            </PrivateRoute>
-            <PrivateRoute exact path="/manageOrders">
-              <ManageOrders></ManageOrders>
-            </PrivateRoute>
-            <PrivateRoute exact path="/payment">
-              <Payment></Payment>
-            </PrivateRoute>
-            <PrivateRoute exact path="/orderNow/:paymentId">
-              <Payment></Payment>
-            </PrivateRoute>
-            <PrivateRoute exact path="/myReview">
-              <MyReview></MyReview>
-            </PrivateRoute>
-            <PrivateRoute exact path="/viewProfile">
-              <ViewProfile></ViewProfile>
-            </PrivateRoute>
-            <PrivateRoute exact path="/manageProducts">
-              <ManageProducts></ManageProducts>
-            </PrivateRoute>
-            <Route path="*">
-              <NotFound></NotFound>
-            </Route>
           </Switch>
-          <Footer></Footer>
         </Router>
-      </AuthProvider> */}
+      </AuthProvider>
+
 
     </div>
   );
