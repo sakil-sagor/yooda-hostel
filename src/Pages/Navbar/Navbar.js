@@ -61,9 +61,28 @@ const Navbar = ({ fixed }) => {
                                         <div className='nav-item'>
                                             <NavLink className="manu-item p-2  font-semibold text-white " to="/home">Home</NavLink >
                                         </div>
-                                        <div className='nav-item'>
-                                            <NavLink className="manu-item p-2  font-semibold text-white " to="/addFood">Add Food</NavLink >
-                                        </div>
+                                        {user.email || user.displayName ?
+                                            <div className='nav-item'>
+                                                <NavLink className="manu-item p-2  font-semibold text-white " to="/serveFood">Serve Food</NavLink >
+                                            </div>
+                                            :
+                                            ""
+                                        }
+                                        {user.email || user.displayName ?
+                                            <div className='nav-item'>
+                                                <NavLink className="manu-item p-2  font-semibold text-white " to="/addStudent">Students</NavLink >
+                                            </div>
+                                            :
+                                            ""
+                                        }
+                                        {user.email || user.displayName ?
+                                            <div className='nav-item'>
+                                                <NavLink className="manu-item p-2  font-semibold text-white " to="/addFood">Add Food</NavLink >
+                                            </div>
+                                            :
+                                            ""
+                                        }
+
                                         <div className="profile-holder py-3 ml-4">
                                             {
                                                 user.email || user.displayName ?

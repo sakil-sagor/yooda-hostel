@@ -26,20 +26,8 @@ const ProfileShortcut = () => {
             <hr />
 
 
-
-            {
-                admin &&
-
-                <div>
-
-                    <div>
-                        <NavLink to="/dashboard" className="text-indigo-900 font-semibold hover:text-indigo-700 block  text-white mt-3">Admin Dashboard</NavLink>
-                    </div>
-                </div>
-
-            }
             <div>
-                <button className="text-indigo-900 font-semibold hover:text-indigo-700 text-white mt-3" onClick={logOut}>Log Out</button>
+                <button className="text-indigo-900 font-semibold hover:text-indigo-700 mt-3" onClick={logOut}>Log Out</button>
             </div>
         </div>
     )

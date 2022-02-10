@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import './AddFood.css'
 
 const AddFood = () => {
@@ -7,20 +8,21 @@ const AddFood = () => {
     const [page, setPage] = useState(0)
     const [pageCount, setPageCount] = useState(0);
     const [update, setUpdate] = useState(0);
-    const size = 3;
+    const [total, setTotal] = useState(0)
+    const size = 5;
+    // load all food from backend 
     useEffect(() => [
         fetch(`http://localhost:5000/foodItems?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setFoods(data.foods);
+                setTotal(data.count)
                 const count = data.count;
                 const pageNumber = Math.ceil(count / size);
                 setPageCount(pageNumber);
 
             })
     ], [update, page])
-
-    console.log(foods);
 
     const initialValu = {
         InStock: true,
@@ -79,6 +81,7 @@ const AddFood = () => {
                         alert('Successfully delete the data.')
                         const remainingData = foods.filter(user => user._id !== id)
                         setFoods(remainingData)
+                        setUpdate(update + 1)
                     }
                 });
         }
@@ -115,10 +118,6 @@ const AddFood = () => {
                                         <input required className="py-2 px-4 w-full text-lg  rounded-md" name="price" type="number" step="0.01" onBlur={handelfield} ref={getPrice} placeholder="Price" />
                                     </div>
                                     <br />
-
-                                    {/* <div>
-                                        <input required className="py-2 px-4 w-full text-lg  rounded-md" name="img" type="text" onBlur={handelfield} ref={getImg} placeholder=" IMG url" />
-                                    </div> <br /> */}
                                     <div>
                                         <input className="py-2 px-4  text-white rounded-md bg-indigo-900 cursor-pointer hover:bg-indigo-800" type="submit" value="Add Food" />
                                     </div>
@@ -126,7 +125,7 @@ const AddFood = () => {
                             </div>
                         </div>
                         <div className='col-span-12 lg:col-span-8'>
-                            <h2 className="text-center text-3xl"> All Foods </h2>
+                            <h2 className="text-center text-3xl"> Total Food Items - {total} </h2>
                             <div>
                                 <div>
                                     <div className="res-table">
@@ -145,7 +144,7 @@ const AddFood = () => {
                                                         <td>{food.foodName}</td>
                                                         <td>{food.price}</td>
                                                         <td >{food.category}</td>
-                                                        <td className='bg-green-600 text-white hover:bg-green-800'>Edit</td>
+                                                        <td className='bg-green-600 text-white hover:bg-green-800'>      <NavLink to={`/addFood/updateFood/${food._id}`}>Edit</NavLink> </td>
                                                         <td className="bg-red-600 text-white hover:bg-red-700"><button onClick={() => handelDeleteFood(food._id)}>Delte</button></td>
 
                                                     </tr>

@@ -1,9 +1,15 @@
 import React from 'react';
+import AllFood from './AllFood/AllFood';
+import AllStudents from './AllStudents/AllStudents';
 
 const Home = () => {
     return (
         <div>
-            <h1>Home</h1>
+            <div>
+                <AllFood></AllFood>
+                <hr />
+                <AllStudents></AllStudents>
+            </div>
         </div>
     );
 };
