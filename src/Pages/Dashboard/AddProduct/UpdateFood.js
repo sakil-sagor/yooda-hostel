@@ -7,7 +7,7 @@ const UpdateFood = () => {
     const [food, setFood] = useState({});
     const { id } = useParams();
     useEffect(() => {
-        const url = `http://localhost:5000/foodItems/${id}`
+        const url = `https://protected-savannah-84466.herokuapp.com/foodItems/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setFood(data))
@@ -44,7 +44,7 @@ const UpdateFood = () => {
     console.log(location);
     console.log(history);
     const hangelUpdateUser = e => {
-        const url = `http://localhost:5000/foodItems/${id}`;
+        const url = `https://protected-savannah-84466.herokuapp.com/foodItems/${id}`;
         fetch(url, {
             method: "PUT",
             headers: {

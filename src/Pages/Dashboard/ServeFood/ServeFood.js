@@ -5,7 +5,7 @@ import { useRef } from 'react';
 const ServeFood = () => {
     const [foods, setFoods] = useState([]);
     useEffect(() => [
-        fetch(`http://localhost:5000/foodItems`)
+        fetch(`https://protected-savannah-84466.herokuapp.com/foodItems`)
             .then(res => res.json())
             .then(data => {
                 setFoods(data.foods);
@@ -22,7 +22,7 @@ const ServeFood = () => {
     const getName = useRef('');
     useEffect(() => {
 
-        const url = ` http://localhost:5000/students?search=${searchInput}`
+        const url = ` https://protected-savannah-84466.herokuapp.com/students?search=${searchInput}`
         fetch(url)
             .then(res => res.json())
             .then(data => setSearchResult(data.students))

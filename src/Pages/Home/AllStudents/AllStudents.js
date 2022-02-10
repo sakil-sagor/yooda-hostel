@@ -10,7 +10,7 @@ const AllStudents = () => {
     const size = 5;
     // load all students from backend 
     useEffect(() => [
-        fetch(`http://localhost:5000/students?page=${page}&&size=${size}`)
+        fetch(`https://protected-savannah-84466.herokuapp.com/students?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setStudents(data.students);

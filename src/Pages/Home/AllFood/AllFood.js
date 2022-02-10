@@ -10,7 +10,7 @@ const AllFood = () => {
     const size = 5;
     // load all food from backend 
     useEffect(() => [
-        fetch(`http://localhost:5000/foodItems?page=${page}&&size=${size}`)
+        fetch(`https://protected-savannah-84466.herokuapp.com/foodItems?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setFoods(data.foods);

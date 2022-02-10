@@ -12,7 +12,7 @@ const AddFood = () => {
     const size = 5;
     // load all food from backend 
     useEffect(() => [
-        fetch(`http://localhost:5000/foodItems?page=${page}&&size=${size}`)
+        fetch(`https://protected-savannah-84466.herokuapp.com/foodItems?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setFoods(data.foods);
@@ -46,7 +46,7 @@ const AddFood = () => {
     const handelRegister = e => {
         const product = { ...productData }
 
-        fetch(' http://localhost:5000/foodItems', {
+        fetch(' https://protected-savannah-84466.herokuapp.com/foodItems', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const AddFood = () => {
         const proceed = window.confirm("Are you sure, You want to delete it?")
         if (proceed) {
 
-            const url = ` http://localhost:5000/foodItems/${id}`;
+            const url = ` https://protected-savannah-84466.herokuapp.com/foodItems/${id}`;
             fetch(url, {
                 method: "DELETE",
             })

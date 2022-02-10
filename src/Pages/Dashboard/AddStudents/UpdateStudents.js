@@ -8,7 +8,7 @@ const UpdateStudents = () => {
     const [student, setStudent] = useState({});
     const { id } = useParams();
     useEffect(() => {
-        const url = `http://localhost:5000/students/${id}`
+        const url = `https://protected-savannah-84466.herokuapp.com/students/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setStudent(data))
@@ -57,7 +57,7 @@ const UpdateStudents = () => {
     console.log(location);
     console.log(history);
     const hangelUpdateUser = e => {
-        const url = `http://localhost:5000/students/${id}`;
+        const url = `https://protected-savannah-84466.herokuapp.com/students/${id}`;
         fetch(url, {
             method: "PUT",
             headers: {

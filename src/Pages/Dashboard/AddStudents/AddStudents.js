@@ -11,7 +11,7 @@ const AddStudents = () => {
     const size = 5;
     // load all students from backend 
     useEffect(() => [
-        fetch(`http://localhost:5000/students?page=${page}&&size=${size}`)
+        fetch(`https://protected-savannah-84466.herokuapp.com/students?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setStudents(data.students);
@@ -42,7 +42,7 @@ const AddStudents = () => {
     const handelRegister = e => {
         const student = { ...studentData }
         console.log(student);
-        fetch(' http://localhost:5000/students', {
+        fetch(' https://protected-savannah-84466.herokuapp.com/students', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -74,7 +74,7 @@ const AddStudents = () => {
         // newName.status = registerStatus;
 
         console.log(newName);
-        const url = `http://localhost:5000/students/${id}`;
+        const url = `https://protected-savannah-84466.herokuapp.com/students/${id}`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -98,7 +98,7 @@ const AddStudents = () => {
         const proceed = window.confirm("Are you sure, You want to delete it?")
         if (proceed) {
 
-            const url = ` http://localhost:5000/students/${id}`;
+            const url = ` https://protected-savannah-84466.herokuapp.com/students/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
