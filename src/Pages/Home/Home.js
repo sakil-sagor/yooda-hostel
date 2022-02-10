@@ -5,7 +5,7 @@ import AllStudents from './AllStudents/AllStudents';
 const Home = () => {
     return (
         <div>
-            <div>
+            <div className='m-auto container full-width-all m-auto'>
                 <AllFood></AllFood>
                 <hr />
                 <AllStudents></AllStudents>

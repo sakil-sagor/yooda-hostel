@@ -68,7 +68,7 @@ const ServeFood = () => {
                                         <input type="text" className="py-2 px-3 text-lg border-black border md:w-1/2  mx-auto  my-6 rounded-full " placeholder="Student Roll" ref={getName} onChange={handelSearch} />
                                     </div>
                                 </div>
-                                <div className='grid grid-cols-3 gap-4 '>
+                                <div className='grid grid-cols-1 md:grid-cols-2 grid-cols-3 gap-4 '>
                                     {
                                         searchResult.map(result =>
                                             <div className='border-2 border-gray-500 p-2'>

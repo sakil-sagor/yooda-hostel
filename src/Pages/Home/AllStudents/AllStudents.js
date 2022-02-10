@@ -23,7 +23,7 @@ const AllStudents = () => {
     ], [update, page])
 
     return (
-        <div className='py-12'>
+        <div className='py-12 px-2'>
             <div className='col-span-12 lg:col-span-8'>
                 <h2 className="text-center text-3xl">Our All Students </h2>
                 <div>
