@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className="bg-indigo-900 pt-10  ">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 container full-width-all m-auto pb-8 px-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 container full-width-all m-auto pb-8 px-2">
                 {/* left section  */}
                 <div className="col-sapn- ">
                     <NavLink to="/home">
@@ -43,17 +43,7 @@ const Footer = () => {
                     </div >
                 </div>
                 {/* right section  */}
-                <div className="col-sapn-12 ">
-                    <div className="bg-indigo-200 border-l-4 border-pink-600 rounded-lg p-4">
-                        <i class="fas fa-headset text-pink-700 text-6xl"></i>
-                        <h1 className="text-2xl font-bold text-indigo-900 py-8">Emergency Cases</h1>
-                        <p className="text-gray-500">Please feel welcome to contact our friendly reception staff with any general or travel enquiry call us.</p>
-                        <div className="flex items-center justify-start   text-gray-600 py-8 ">
-                            <p><i class="fas fa-phone text-3xl text-pink-700  mr-4"></i></p>
-                            <h3 className="text-lg font-bold">+8801712 365764</h3>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             {/* footer bottom  */}
             <div className="bg-gray-900">
